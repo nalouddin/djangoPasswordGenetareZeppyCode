@@ -12,7 +12,10 @@ def password(request):
 
     characters = list('abcdefghijklmnopqrstuvwxyz')
 
-    length = 10
+    if request.GET.get('uppercase'):
+        characters.extend(list('ABCDFGHIJKLMNOPQRSTUVWXYZ'))
+
+    length = int(request.GET.get('length', 12))
 
     thepassword = ''
     for i in range(length):
