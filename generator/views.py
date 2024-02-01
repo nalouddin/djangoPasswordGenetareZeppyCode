@@ -15,6 +15,12 @@ def password(request):
     if request.GET.get('uppercase'):
         characters.extend(list('ABCDFGHIJKLMNOPQRSTUVWXYZ'))
 
+    if request.GET.get('special'):
+        characters.extend(list('!@#$%^&*()'))
+
+    if request.GET.get('numbers'):
+        characters.extend(list('0123456789'))
+
     length = int(request.GET.get('length', 12))
 
     thepassword = ''
